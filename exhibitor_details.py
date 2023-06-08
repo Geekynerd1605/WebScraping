@@ -53,7 +53,6 @@ comp_types = []
 short_dess = []
 
 
-
 for i in range(1, 65):
     url = "https://gitexafrica.expoplatform.com/newfront/marketplace/exhibitors?limit=12&pageNumber={}".format(i)
     driver.get(url)
@@ -66,28 +65,19 @@ for i in range(1, 65):
 
     links = driver.find_elements(By.CSS_SELECTOR, '.MuiTypography-root.MuiTypography-inherit.MuiLink-root.MuiLink-underlineAlways.css-1s3gmda')
 
-    # print(links)
-    # print(len(links))
 
     for link in links:
         href_link = link.get_attribute('href')
-        # print(href_link)
         if "exhibitor" in href_link:
-            # print(href_link)
             link_list.append(href_link)
-    # print(link_list)
-    # print(len(link_list))
 
     link_list = list(set(link_list))
-    # print(link_list)
-    print(len(link_list))
     for link in link_list:
         driver.get(link)
 
         try:
             name_ele = driver.find_element(By.CSS_SELECTOR, '.MuiTypography-root.MuiTypography-h2.MuiTypography-alignCenter.css-2z6g9m')
             name = name_ele.text
-            print(name)
         except NoSuchElementException:
             name = None
         names.append(name)
@@ -95,7 +85,6 @@ for i in range(1, 65):
         try:
             country_ele = driver.find_element(By.CSS_SELECTOR, '.MuiTypography-root.MuiTypography-body1.MuiTypography-alignCenter.css-9ryj3r[data-styleid="product-subtitle1')
             country = country_ele.text
-            print(country)
         except NoSuchElementException:
             country = None
         countrys.append(country)
@@ -103,7 +92,6 @@ for i in range(1, 65):
         try:
             hall_ele = driver.find_element(By.CSS_SELECTOR, '[data-styleid="exhibitorHall"]')
             hall = hall_ele.text
-            print(hall)
         except NoSuchElementException:
             hall = None
         exhibitor_halls.append(hall)
@@ -111,7 +99,6 @@ for i in range(1, 65):
         try:
             exhibitor_stand_ele = driver.find_element(By.CSS_SELECTOR, '[data-styleid="exhibitorStand"]')
             exhibitor_stand = exhibitor_stand_ele.text
-            print(exhibitor_stand)
         except NoSuchElementException:
             exhibitor_stand = None
         exhibitor_stands.append(exhibitor_stand)
@@ -119,7 +106,6 @@ for i in range(1, 65):
         try:
             website_ele = driver.find_element(By.CSS_SELECTOR, '.MuiTypography-root.MuiTypography-subtitle2.MuiTypography-noWrap.css-2v1bp3')
             website = website_ele.text
-            print(website)
         except NoSuchElementException:
             website = None
         websites.append(website)
@@ -127,7 +113,6 @@ for i in range(1, 65):
         try:
             twitter_ele = driver.find_element(By.XPATH, '/html/body/div[1]/div[2]/div[1]/main/div/div/div/div/div[3]/div/div/div[2]/div/div[2]/div[2]/a[1]')
             twitter = twitter_ele.get_attribute('href')
-            print(twitter)
         except NoSuchElementException:
             twitter = None
         twitters.append(twitter)
@@ -135,7 +120,6 @@ for i in range(1, 65):
         try:
             instagram_ele = driver.find_element(By.XPATH, '/html/body/div[1]/div[2]/div[1]/main/div/div/div/div/div[3]/div/div/div[2]/div/div[2]/div[2]/a[2]')
             instagram = instagram_ele.get_attribute('href')
-            print(instagram)
         except NoSuchElementException:
             instagram = None
         instagrams.append(instagram)
@@ -143,7 +127,6 @@ for i in range(1, 65):
         try:
             linkedin_ele = driver.find_element(By.XPATH, '/html/body/div[1]/div[2]/div[1]/main/div/div/div/div/div[3]/div/div/div[2]/div/div[2]/div[2]/a[3]')
             linkedin = linkedin_ele.get_attribute('href')
-            print(linkedin)
         except NoSuchElementException:
             linkedin = None
         linkedins.append(linkedin)
@@ -151,7 +134,6 @@ for i in range(1, 65):
         try:
             youtube_ele = driver.find_element(By.XPATH, '/html/body/div[1]/div[2]/div[1]/main/div/div/div/div/div[3]/div/div/div[2]/div/div[2]/div[2]/a[4]')
             youtube = youtube_ele.get_attribute('href')
-            print(youtube)
         except NoSuchElementException:
             youtube = None
         youtubes.append(youtube)
@@ -159,7 +141,6 @@ for i in range(1, 65):
         try:
             about_ele = driver.find_element(By.CSS_SELECTOR, '.MuiTypography-root.MuiTypography-body1.css-ztt2f5[data-testid="description"]')
             about = about_ele.text.strip()
-            print(about)
         except NoSuchElementException:
             about = None
         abouts.append(about)
@@ -167,7 +148,6 @@ for i in range(1, 65):
         try:
             short_des_ele = driver.find_element(By.XPATH, '/html/body/div[1]/div[2]/div[1]/main/div/div/div/div/div[5]/div/div/div[2]/div/div/p')
             short_des = short_des_ele.text.strip()
-            print(short_des)
         except NoSuchElementException:
             short_des = None
         short_dess.append(short_des)
@@ -175,7 +155,6 @@ for i in range(1, 65):
         try:
             comp_profile_ele = driver.find_element(By.XPATH, '/html/body/div[1]/div[2]/div[1]/main/div/div/div/div/div[5]/div/div/div[3]/div/div/p')
             comp_profile = comp_profile_ele.text.strip()
-            print(comp_profile)
         except NoSuchElementException:
             comp_profile = None
         comp_profiles.append(comp_profile)
@@ -183,7 +162,6 @@ for i in range(1, 65):
         try:
             comp_hq_ele = driver.find_element(By.XPATH, '/html/body/div[1]/div[2]/div[1]/main/div/div/div/div/div[5]/div/div/div[4]/div/div/p')
             comp_hq = comp_hq_ele.text
-            print(comp_hq)
         except NoSuchElementException:
             comp_hq = None
         comp_hqs.append(comp_hq)
@@ -191,26 +169,10 @@ for i in range(1, 65):
         try:
             comp_type_ele = driver.find_element(By.XPATH, '/html/body/div[1]/div[2]/div[1]/main/div/div/div/div/div[5]/div/div/div[5]/div/div/p')
             comp_type = comp_type_ele.text
-            print(comp_type)
         except NoSuchElementException:
             comp_type = None
         comp_types.append(comp_type)
 
-
-    print(names)
-    print(countrys)
-    print(exhibitor_halls)
-    print(exhibitor_stands)
-    print(websites)
-    print(twitters)
-    print(linkedins)
-    print(instagrams)
-    print(youtubes)
-    print(abouts)
-    print(comp_profiles)
-    print(comp_hqs)
-    print(comp_types)
-    print(short_dess)
 
 df = pd.DataFrame({"Company_Name": names, "Country": countrys, "Exhibitor Hall": exhibitor_halls, "Exhibitor_Stand": exhibitor_stands,
                    "Website": websites, "Twitter_id": twitters, "LinkedIn_id": linkedins, "Instagram_id": instagrams,
