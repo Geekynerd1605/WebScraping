@@ -66,4 +66,4 @@ df['Comp_CB']:Cmp_CB
 df['CrunchBase']= CB_id
 print(df.head())
 
-df.to_csv('/home/hb/Desktop/Swastika/Web Scraping/Best Startups.csv', sep='\t', encoding='utf-8', index=False)
+df.to_csv('Path/to/file', sep='\t', encoding='utf-8', index=False)
